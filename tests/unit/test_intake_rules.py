@@ -3,7 +3,11 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from src.intake_rules import approve_intake, validate_dr_evidence_date
+from src.intake_rules import (
+    approve_intake,
+    persist_audit_event,
+    validate_dr_evidence_date,
+)
 
 
 FIXED_NOW = datetime(2026, 5, 26, 12, 0, 0, tzinfo=timezone.utc)
@@ -103,6 +107,7 @@ def test_unauthorized_attempt_creates_audit_record_without_disclosing_log_to_use
 
 def test_audit_log_is_persisted_in_less_than_one_second():
     # REQ-009 / AC: log persistido em menos de 1 segundo apos o bloqueio.
+    audit_store = []
     result = approve_intake(
         role="Viewer",
         user_id="viewer-010",
@@ -112,4 +117,11 @@ def test_audit_log_is_persisted_in_less_than_one_second():
     )
 
     audit_event = result["audit_events"][0]
-    assert audit_event["persisted_after_seconds"] < 1
+    persistence_result = persist_audit_event(audit_store, audit_event)
+
+    assert audit_store == [audit_event]
+    assert persistence_result["persisted"] is True
+    assert persistence_result["elapsed_seconds"] < 1
+    assert audit_store[0]["user_id"] == "viewer-010"
+    assert audit_store[0]["action"] == "Aprovar Intake"
+    assert audit_store[0]["timestamp_utc"] == "2026-05-26T12:00:00Z"

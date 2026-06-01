@@ -69,12 +69,14 @@ Resultado observado:
 
 ## 6. Cenários BDD
 
-Foi criado o ficheiro `bdd/features/lab11.feature` com uma feature e dois cenários:
+Foi criado o ficheiro `bdd/features/lab11.feature` com uma feature e quatro cenários:
 
 - percurso feliz: utilizador autorizado aprova um Intake válido;
-- percurso negativo: utilizador `Viewer` tenta aprovar, é bloqueado e existe evidência de auditoria.
+- percurso negativo: utilizador `Viewer` tenta aprovar, é bloqueado e existe evidência de auditoria;
+- percurso negativo: evidência de Disaster Recovery com data futura é rejeitada;
+- percurso de fronteira: evidência de Disaster Recovery exatamente com 365 dias é aceite.
 
-Os cenários estão alinhados com `REQ-003` e `REQ-009`.
+Os cenários BDD cobrem `REQ-003`, `REQ-005` e `REQ-009`.
 
 ## 7. Evidência
 

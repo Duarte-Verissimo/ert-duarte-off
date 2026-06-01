@@ -469,6 +469,7 @@ O foco foi transformar acceptance criteria críticos da Variante 3 em testes aut
 - Foram criados 8 testes automáticos em `tests/unit/test_intake_rules.py`.
 - Foi criada a implementação mínima em `src/intake_rules.py`.
 - Foi criado o ficheiro BDD `bdd/features/lab11.feature`.
+- Os cenários BDD do Lab 11 cobrem RBAC, auditoria e validade temporal da evidência de Disaster Recovery.
 - Foi criado o log `docs/test_first_log.md`.
 - Foi usada uma abordagem `REQ → AC → Teste → Implementação → Evidência`.
 - Foi registada a utilização de IA e a rejeição de scope extra.

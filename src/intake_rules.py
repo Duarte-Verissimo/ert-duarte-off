@@ -1,3 +1,4 @@
+import time
 from datetime import date, datetime, timezone
 
 
@@ -15,6 +16,17 @@ def _utc_now(now: datetime | None = None) -> datetime:
 
 def _timestamp_utc(value: datetime) -> str:
     return value.isoformat().replace("+00:00", "Z")
+
+
+def persist_audit_event(audit_store: list, audit_event: dict) -> dict:
+    started_at = time.perf_counter()
+    audit_store.append(audit_event)
+    elapsed_seconds = time.perf_counter() - started_at
+
+    return {
+        "persisted": True,
+        "elapsed_seconds": elapsed_seconds,
+    }
 
 
 def validate_dr_evidence_date(value: str, now: datetime | None = None) -> dict:
@@ -71,7 +83,6 @@ def approve_intake(
                     "user_id": user_id,
                     "action": APPROVE_ACTION,
                     "timestamp_utc": _timestamp_utc(timestamp),
-                    "persisted_after_seconds": 0.0,
                 }
             ],
         }
