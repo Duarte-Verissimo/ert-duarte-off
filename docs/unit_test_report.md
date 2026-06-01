@@ -27,6 +27,8 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 5. `REQ-005` — Evidência de DR com data futura é rejeitada.
 6. `REQ-009` — Tentativa não autorizada cria/persiste audit log sem revelar isso ao utilizador.
 
+> Nota: no `REQ-009`, os critérios relacionados com criação do audit log, persistência em menos de 1 segundo e não divulgação explícita ao utilizador foram agrupados num único AC automatizado. Esta decisão foi tomada para respeitar o limite de 6 acceptance criteria total definido para o Lab 12, mantendo a rastreabilidade aos comportamentos principais do requisito.
+
 ## Funções testadas
 
 - `approve_intake`
@@ -35,25 +37,25 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 
 ## Testes unitários
 
-| Teste PyTest | REQ/AC | Tipo | Assertions principais |
-| --- | --- | --- | --- |
-| `test_authorized_transition_manager_can_approve_valid_intake` | REQ-003 / utilizador autorizado aprova Intake válido | Happy | `allowed is True`, estado `Aprovado`, sem audit events |
-| `test_authorized_security_officer_can_approve_valid_intake` | REQ-003 / utilizador autorizado aprova Intake válido | Happy | `allowed is True`, estado `Aprovado`, sem audit events |
-| `test_viewer_cannot_approve_intake` | REQ-003 / `Viewer` não pode aprovar | Negative | `allowed is False`, estado permanece `Draft`, mensagem contém `Acesso Negado` |
-| `test_dr_evidence_exactly_365_days_old_is_valid` | REQ-005 / evidência com 365 dias é aceite | Boundary | `is_valid is True`, `age_days == 365` |
-| `test_dr_evidence_older_than_365_days_is_rejected` | REQ-005 / evidência com mais de 365 dias é rejeitada | Negative | `is_valid is False`, `age_days == 366`, mensagem indica prazo inválido |
-| `test_dr_evidence_future_date_is_rejected` | REQ-005 / data futura é rejeitada | Negative | `is_valid is False`, `age_days == -1`, mensagem indica data futura |
-| `test_unauthorized_attempt_creates_audit_record_without_disclosing_log_to_user` | REQ-009 / tentativa não autorizada cria audit event sem divulgar log | Security / Negative | existe um audit event com `user_id`, `action`, `timestamp_utc`; mensagem não menciona log/auditoria |
-| `test_audit_log_is_persisted_in_less_than_one_second` | REQ-009 / audit log é persistido em menos de 1 segundo | Security / Performance | evento guardado no `audit_store`, `persisted is True`, `elapsed_seconds < 1`, evento mantém `user_id`, `action`, `timestamp_utc` |
+| Teste PyTest                                                                    | REQ/AC                                                               | Tipo                   | Assertions principais                                                                                                            |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `test_authorized_transition_manager_can_approve_valid_intake`                   | REQ-003 / utilizador autorizado aprova Intake válido                 | Happy                  | `allowed is True`, estado `Aprovado`, sem audit events                                                                           |
+| `test_authorized_security_officer_can_approve_valid_intake`                     | REQ-003 / utilizador autorizado aprova Intake válido                 | Happy                  | `allowed is True`, estado `Aprovado`, sem audit events                                                                           |
+| `test_viewer_cannot_approve_intake`                                             | REQ-003 / `Viewer` não pode aprovar                                  | Negative               | `allowed is False`, estado permanece `Draft`, mensagem contém `Acesso Negado`                                                    |
+| `test_dr_evidence_exactly_365_days_old_is_valid`                                | REQ-005 / evidência com 365 dias é aceite                            | Boundary               | `is_valid is True`, `age_days == 365`                                                                                            |
+| `test_dr_evidence_older_than_365_days_is_rejected`                              | REQ-005 / evidência com mais de 365 dias é rejeitada                 | Negative               | `is_valid is False`, `age_days == 366`, mensagem indica prazo inválido                                                           |
+| `test_dr_evidence_future_date_is_rejected`                                      | REQ-005 / data futura é rejeitada                                    | Negative               | `is_valid is False`, `age_days == -1`, mensagem indica data futura                                                               |
+| `test_unauthorized_attempt_creates_audit_record_without_disclosing_log_to_user` | REQ-009 / tentativa não autorizada cria audit event sem divulgar log | Security / Negative    | existe um audit event com `user_id`, `action`, `timestamp_utc`; mensagem não menciona log/auditoria                              |
+| `test_audit_log_is_persisted_in_less_than_one_second`                           | REQ-009 / audit log é persistido em menos de 1 segundo               | Security / Performance | evento guardado no `audit_store`, `persisted is True`, `elapsed_seconds < 1`, evento mantém `user_id`, `action`, `timestamp_utc` |
 
 ## Checklist de cobertura
 
-| Critério | Evidência | Estado |
-| --- | --- | --- |
-| ≥ 8 unit tests | 8 testes em `tests/unit/test_intake_rules.py` | Cumprido |
+| Critério                  | Evidência                                                                              | Estado   |
+| ------------------------- | -------------------------------------------------------------------------------------- | -------- |
+| ≥ 8 unit tests            | 8 testes em `tests/unit/test_intake_rules.py`                                          | Cumprido |
 | ≥ 4 happy-path assertions | Aprovação autorizada, estado `Aprovado`, ausência de audit events, evidência DR válida | Cumprido |
-| ≥ 2 negative/error tests | Bloqueio de `Viewer`, DR com 366 dias, DR futura, tentativa não autorizada | Cumprido |
-| ≥ 1 boundary test | Evidência de DR exatamente com 365 dias | Cumprido |
+| ≥ 2 negative/error tests  | Bloqueio de `Viewer`, DR com 366 dias, DR futura, tentativa não autorizada             | Cumprido |
+| ≥ 1 boundary test         | Evidência de DR exatamente com 365 dias                                                | Cumprido |
 
 ## Execution Evidence
 
