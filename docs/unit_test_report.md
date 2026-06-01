@@ -57,17 +57,12 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 
 ## Execution Evidence
 
-Comando:
-
-```bash
-python -m pytest -q
-```
-
-Resultado:
-
-```txt
-8 passed
-```
+- Date: 2026-06-01
+- Command used: `python -m pytest -q`
+- Tests run: 8
+- Passed: 8
+- Failed: 0
+- Result summary: `8 passed`
 
 ## Limitações conhecidas
 
