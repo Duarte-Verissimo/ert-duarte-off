@@ -504,6 +504,68 @@ A implementação criada é apenas uma representação testável das regras dos 
 
 ---
 
+## Lab 12 — Unit Tests e Assertions com PyTest
+
+### Objetivo
+
+Consolidar a evidência de testes unitários do Lab 11, focando Unit Tests, Assertions, Running Tests e Evidence com a stack Python + PyTest.
+
+O Lab 12 não adiciona novos requisitos nem novas funcionalidades. O objetivo é documentar e demonstrar a execução dos testes unitários já alinhados com `REQ-003`, `REQ-005` e `REQ-009`.
+
+### O que foi feito
+
+- Foram revistos os testes em `tests/unit/test_intake_rules.py`.
+- Os nomes dos testes foram mantidos claros e rastreáveis.
+- Cada teste mantém ligação a REQ/AC em comentário.
+- Foram adicionados comentários `Arrange / Act / Assert` para melhorar a leitura da estrutura dos testes.
+- Foi criado o relatório `docs/unit_test_report.md`.
+- Foi criado o guia de execução `docs/test_execution.md`.
+- Foi mantida a stack Python + PyTest como evidência principal.
+
+### Ficheiros criados
+
+- `docs/unit_test_report.md`
+- `docs/test_execution.md`
+
+### Testes usados
+
+O Lab 12 usa os 8 testes PyTest existentes:
+
+- `test_authorized_transition_manager_can_approve_valid_intake`
+- `test_authorized_security_officer_can_approve_valid_intake`
+- `test_viewer_cannot_approve_intake`
+- `test_dr_evidence_exactly_365_days_old_is_valid`
+- `test_dr_evidence_older_than_365_days_is_rejected`
+- `test_dr_evidence_future_date_is_rejected`
+- `test_unauthorized_attempt_creates_audit_record_without_disclosing_log_to_user`
+- `test_audit_log_is_persisted_in_less_than_one_second`
+
+### Execução
+
+Os testes devem ser executados com:
+
+```bash
+python -m pytest -q
+```
+
+Resultado esperado:
+
+```txt
+8 passed
+```
+
+### Resultado funcional
+
+O dossiê passou a ter uma evidência formal de unit testing, com relatório de assertions, tipos de teste, critérios de cobertura e instruções de execução reproduzíveis.
+
+Ficou documentado que os testes cobrem:
+
+- RBAC na aprovação do Intake;
+- validade temporal da evidência de Disaster Recovery;
+- criação e persistência simulada em memória de audit log para tentativas não autorizadas.
+
+---
+
 ## Síntese global
 
 ### Estrutura
@@ -527,6 +589,8 @@ A implementação criada é apenas uma representação testável das regras dos 
 - `1 plano de testes`
 - `1 matriz REQ → AC → TC/BDD`
 - `1 Test First Log`
+- `1 relatório de unit tests`
+- `1 guia de execução de testes PyTest`
 - `7 melhorias de Acceptance Criteria`
 - `4 updates à Definition of Done`
 - `1 evidência Visual Paradigm para test cases`

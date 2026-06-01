@@ -54,6 +54,7 @@ A fase Green foi obtida depois de implementar apenas as funções necessárias:
 
 - `validate_dr_evidence_date`
 - `approve_intake`
+- `persist_audit_event`
 
 Comando usado:
 
