@@ -25,6 +25,14 @@ const OPERATIONAL_ROLE: Role = "Transition Manager";
 
 type Status = "Draft" | "Aprovado";
 
+type AuditEvent = {
+  userId: string;
+  role: Role;
+  action: "Aprovar Intake";
+  timestampUtc: string;
+  reason: string;
+};
+
 type Feedback =
   | { kind: "error"; message: string }
   | { kind: "success"; message: string }
@@ -45,9 +53,25 @@ const Index = () => {
   const [status, setStatus] = useState<Status>("Draft");
   const [feedback, setFeedback] = useState<Feedback>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [auditEvents, setAuditEvents] = useState<AuditEvent[]>([]);
 
   const isOperational = role === OPERATIONAL_ROLE;
   const isApprovalAuthorized = useMemo(() => APPROVAL_AUTHORIZED.includes(role), [role]);
+
+  const recordUnauthorizedAttempt = (
+    action: AuditEvent["action"],
+    reason: string
+  ) => {
+    const event: AuditEvent = {
+      userId: `demo-${role.toLowerCase().replace(/\s+/g, "-")}`,
+      role,
+      action,
+      timestampUtc: new Date().toISOString(),
+      reason,
+    };
+
+    setAuditEvents((events) => [event, ...events]);
+  };
 
   const handleAttachDr = (file: File | null) => {
     if (!file) return;
@@ -63,6 +87,10 @@ const Index = () => {
     // and we don't expose field-level validation details to them.
     if (!isApprovalAuthorized) {
       setFieldErrors({});
+      recordUnauthorizedAttempt(
+        "Aprovar Intake",
+        "Role sem permissão para aprovar Intake"
+      );
       setFeedback({
         kind: "error",
         message:
@@ -300,6 +328,53 @@ const Index = () => {
 
           <Card>
             <CardHeader>
+              <CardTitle className="text-base">Audit trail académico</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm">
+              <p className="text-xs text-muted-foreground">
+                Registos simulados em memória para demonstração do REQ-009. Não
+                existe backend ou persistência real neste protótipo.
+              </p>
+              {auditEvents.length === 0 ? (
+                <p className="rounded-md border border-dashed p-3 text-xs text-muted-foreground">
+                  Sem audit events simulados nesta sessão.
+                </p>
+              ) : (
+                <ul className="space-y-2">
+                  {auditEvents.slice(0, 5).map((event, index) => (
+                    <li
+                      key={`${event.timestampUtc}-${index}`}
+                      className="rounded-md border p-3"
+                    >
+                      <div className="mb-2 flex flex-wrap items-center gap-2">
+                        <Badge variant="secondary">{event.role}</Badge>
+                        <span className="font-medium text-foreground">
+                          {event.action}
+                        </span>
+                      </div>
+                      <dl className="grid gap-1 text-xs text-muted-foreground sm:grid-cols-2">
+                        <div>
+                          <dt className="font-medium text-foreground">
+                            Timestamp UTC
+                          </dt>
+                          <dd>{event.timestampUtc}</dd>
+                        </div>
+                        <div>
+                          <dt className="font-medium text-foreground">
+                            Motivo
+                          </dt>
+                          <dd>{event.reason}</dd>
+                        </div>
+                      </dl>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
               <CardTitle className="text-base">Como demonstrar</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm text-muted-foreground">
@@ -317,8 +392,11 @@ const Index = () => {
               <p>
                 <strong className="text-foreground">Error/exception:</strong>{" "}
                 role Viewer (não autorizada) tenta aprovar → "Acesso Negado".
-                O Security Officer aparece apenas como role de governação:
-                não preenche o formulário nem anexa DR no fluxo normal.
+                Internamente é criado um audit event simulado; o utilizador
+                bloqueado não recebe confirmação explícita de que o log foi
+                criado. O Security Officer aparece apenas como role de
+                governação: não preenche o formulário nem anexa DR no fluxo
+                normal.
               </p>
             </CardContent>
           </Card>

@@ -72,3 +72,7 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 - Não existe teste UI/Selenium neste Lab.
 - Não existe base de dados real.
 - Não existe integração real com Active Directory, SSO ou autenticação corporativa.
+
+## Nota posterior sobre o protótipo React
+
+O protótipo React passou a refletir o REQ-009 através de audit events simulados em memória. A persistência real continua fora de scope; a simulação existe apenas para demonstração académica e não substitui os testes PyTest dos Labs 11 e 12.

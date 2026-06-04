@@ -564,6 +564,63 @@ Ficou documentado que os testes cobrem:
 - validade temporal da evidência de Disaster Recovery;
 - criação e persistência simulada em memória de audit log para tentativas não autorizadas.
 
+### Nota posterior sobre o protótipo React
+
+O protótipo React passou a refletir o REQ-009 através de audit events simulados em memória. A persistência real continua fora de scope; a simulação existe apenas para demonstração académica e não substitui os testes PyTest dos Labs 11 e 12.
+
+---
+
+## Lab 13 — BDD Scenarios + Automation com Behave
+
+### Objetivo
+
+Transformar acceptance criteria dos requisitos críticos do slice `Intake & Discovery` em cenários BDD executáveis com Behave + Gherkin.
+
+O Lab 13 mantém o foco na Variante 3 — Security & Role-Based Approval, cobrindo `REQ-003`, `REQ-005` e `REQ-009`.
+
+### O que foi feito
+
+- Foi criado `bdd/features/lab13.feature` com os 8 cenários do Lab 13.
+- Foram criados ficheiros `.feature` separados por requisito, seguindo o exemplo do professor:
+  - `bdd/features/req_003_aprovacao_rbac.feature`
+  - `bdd/features/req_005_validade_evidencia_dr.feature`
+  - `bdd/features/req_009_auditoria_acoes_nao_autorizadas.feature`
+- Foi criado `bdd/environment.py` para configurar imports e inicializar o contexto antes de cada cenário.
+- Foi criado `bdd/steps/intake_steps.py` com step definitions Behave.
+- Os steps chamam diretamente as funções de `src/intake_rules.py`.
+- Não foi usado Selenium, backend, base de dados ou UI.
+- Não foram alterados os testes PyTest existentes.
+
+### Cenários BDD
+
+O ficheiro agregado `lab13.feature` contém 8 cenários:
+
+- 3 cenários para `REQ-003` sobre aprovação por RBAC;
+- 3 cenários para `REQ-005` sobre validade temporal da evidência de Disaster Recovery;
+- 2 cenários para `REQ-009` sobre auditoria de ações não autorizadas.
+
+Os ficheiros separados por requisito contêm os mesmos 8 cenários, organizados por requisito.
+
+### Evidência
+
+- Rastreabilidade: `docs/traceability_req_bdd.md`
+- Relatório BDD: `docs/bdd_report.md`
+
+Comandos de execução usados:
+
+```bash
+python -m behave bdd/features/lab13.feature
+python -m behave bdd/features/req_003_aprovacao_rbac.feature
+python -m behave bdd/features/req_005_validade_evidencia_dr.feature
+python -m behave bdd/features/req_009_auditoria_acoes_nao_autorizadas.feature
+```
+
+Resultado funcional:
+
+- `lab13.feature`: 8 cenários passados;
+- ficheiros separados por requisito: 8 cenários passados no total;
+- PyTest manteve 8 testes passados.
+
 ---
 
 ## Síntese global
@@ -584,13 +641,16 @@ Ficou documentado que os testes cobrem:
 - `1 protótipo executável no repositório`
 - `24 casos de teste`
 - `8 testes automáticos PyTest`
-- `2 feature files Gherkin com cenários BDD`
+- `6 feature files Gherkin com cenários BDD`
+- `1 conjunto de step definitions Behave`
 - `1 matriz REQ ↔ TC`
+- `1 matriz REQ ↔ BDD`
 - `1 plano de testes`
 - `1 matriz REQ → AC → TC/BDD`
 - `1 Test First Log`
 - `1 relatório de unit tests`
 - `1 guia de execução de testes PyTest`
+- `1 relatório BDD`
 - `7 melhorias de Acceptance Criteria`
 - `4 updates à Definition of Done`
 - `1 evidência Visual Paradigm para test cases`

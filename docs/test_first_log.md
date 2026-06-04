@@ -121,3 +121,7 @@ Foi considerado fora de scope e rejeitado:
 - alterar o protótipo React;
 - usar Vitest como evidência principal;
 - adicionar funcionalidades não rastreáveis aos requisitos selecionados.
+
+## 11. Nota posterior sobre o protótipo React
+
+O protótipo React passou a refletir o REQ-009 através de audit events simulados em memória. A persistência real continua fora de scope; a simulação existe apenas para demonstração académica e não substitui os testes PyTest dos Labs 11 e 12.
