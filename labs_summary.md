@@ -623,6 +623,59 @@ Resultado funcional:
 
 ---
 
+## Lab 14 — Quality & Testing Maintenance
+
+### Objetivo
+
+Realizar uma sprint de manutenção de qualidade dos testes, consolidando rastreabilidade, gaps, retrocompatibilidade e grooming.
+
+O Lab 14 não cria funcionalidades novas. O foco é arrumar, ligar, justificar e provar que os testes continuam saudáveis.
+
+### O que foi feito
+
+- Foi criada a matriz consolidada `docs/traceability_master.md`.
+- Foi criada a análise de gaps `docs/gap_analysis_lab14.md`.
+- Foi criada a análise de retrocompatibilidade `docs/test_retrocompatibility.md`.
+- Foi criado o relatório de grooming `docs/test_grooming_report.md`.
+- Foi reforçada a nota de execução em `docs/bdd_report.md`, clarificando que a evidência principal do Lab 13 é a execução de `lab13.feature` e dos ficheiros por requisito.
+- Foi alinhado o wording de `REQ-005` em `docs/traceability_req_tc.md`, substituindo a referência antiga a `frescura` por `validade temporal`.
+- Foi confirmado que os cenários BDD do Lab 13 têm ligação clara ao requisito correspondente.
+- Foi confirmado que os testes PyTest mantêm ligação `REQ/AC`.
+
+### Principais riscos identificados
+
+- Assertions dependentes de texto podem partir se o wording mudar.
+- Datas fixas dos testes de Disaster Recovery exigem consistência.
+- A duplicação intencional entre `lab13.feature` e os ficheiros por requisito exige atualização coordenada.
+- A execução global `python -m behave bdd/` pode incluir features antigos, como `lab11.feature`.
+- A persistência do audit log continua simulada em memória.
+
+### Evidência
+
+Foram executados:
+
+```bash
+python -m pytest -q
+python -m behave bdd/features/lab13.feature
+python -m behave bdd/features/req_003_aprovacao_rbac.feature
+python -m behave bdd/features/req_005_validade_evidencia_dr.feature
+python -m behave bdd/features/req_009_auditoria_acoes_nao_autorizadas.feature
+```
+
+Resultado esperado e registado:
+
+- PyTest: 8 testes passados;
+- Behave `lab13.feature`: 8 cenários passados;
+- Behave ficheiros separados: 8 cenários passados no total.
+
+### Resultado funcional
+
+O dossiê passou a ter uma camada de manutenção de testes, com rastreabilidade master, gaps documentados, análise de fragilidade e relatório de grooming.
+
+Esta camada ajuda a mostrar que a suite de testes não é apenas criada, mas também mantida e analisada criticamente.
+
+---
+
 ## Síntese global
 
 ### Estrutura
@@ -645,12 +698,16 @@ Resultado funcional:
 - `1 conjunto de step definitions Behave`
 - `1 matriz REQ ↔ TC`
 - `1 matriz REQ ↔ BDD`
+- `1 matriz master de rastreabilidade`
 - `1 plano de testes`
 - `1 matriz REQ → AC → TC/BDD`
 - `1 Test First Log`
 - `1 relatório de unit tests`
 - `1 guia de execução de testes PyTest`
 - `1 relatório BDD`
+- `1 gap analysis de testes`
+- `1 análise de retrocompatibilidade de testes`
+- `1 relatório de grooming de testes`
 - `7 melhorias de Acceptance Criteria`
 - `4 updates à Definition of Done`
 - `1 evidência Visual Paradigm para test cases`

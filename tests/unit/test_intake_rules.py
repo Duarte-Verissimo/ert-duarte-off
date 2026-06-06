@@ -17,7 +17,7 @@ def test_authorized_transition_manager_can_approve_valid_intake():
     # REQ-003 / AC: Transition Manager pode aprovar um Intake valido.
     # Arrange / Act
     result = approve_intake(
-        role="Viewer",
+        role="Transition Manager",
         user_id="tm-001",
         current_status="Draft",
         is_intake_valid=True,

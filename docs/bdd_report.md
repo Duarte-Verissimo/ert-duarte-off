@@ -38,6 +38,8 @@ python -m behave bdd/
 
 Nota: correr `bdd/` pode executar também ficheiros antigos, como `lab11.feature`. Se isso causar conflito ou cenários antigos sem steps, usar os comandos específicos do Lab 13 acima.
 
+Para o Lab 13, a evidência principal considerada é a execução de `bdd/features/lab13.feature` e dos três ficheiros separados por requisito. A execução genérica de `python -m behave bdd/` é útil como verificação global, mas não é a evidência principal porque pode incluir features antigas que não fazem parte do scope do Lab 13.
+
 ## Execution results
 
 - Date: 2026-06-04

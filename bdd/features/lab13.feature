@@ -77,7 +77,7 @@ Funcionalidade: Lab 13 - BDD executável para regras de aprovação segura do In
     E o utilizador não recebe confirmação explícita de que o log foi criado
 
   # Requisito testado: REQ-009
-  Cenário: Comportamento de segurança - Audit event é persistido em menos de 1 segundo
+  Cenário: Percurso feliz - Audit event é persistido em menos de 1 segundo
     Dado que existe um audit event de tentativa não autorizada
     Quando o sistema persiste o audit event
     Então o audit event fica guardado no audit store

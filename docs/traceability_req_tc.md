@@ -13,7 +13,7 @@ O `REQ-001 — Recolher detalhes de infraestrutura e contactos` foi removido des
 | REQ-002 | TC-001, TC-002 | Valida anexação de evidência de DR e bloqueio quando está em falta. |
 | REQ-003 | TC-003, TC-004, TC-005, TC-019 | Valida aprovação por RBAC e bloqueio por role não autorizada. |
 | REQ-004 | TC-002, TC-003, TC-004, TC-019, TC-022 | Valida bloqueio de aprovação por informação incompleta ou inválida. |
-| REQ-005 | TC-003, TC-004, TC-006, TC-007, TC-008, TC-022 | Valida frescura da evidência de DR. |
+| REQ-005 | TC-003, TC-004, TC-006, TC-007, TC-008, TC-022 | Valida a validade temporal da evidência de DR. |
 | REQ-006 | TC-009, TC-010 | Valida identidade e roles do diretório corporativo. |
 | REQ-007 | TC-011, TC-012 | Valida reabertura autorizada e bloqueio de reabertura não autorizada. |
 | REQ-008 | TC-013, TC-014, TC-015 | Valida override, reautenticação e justificação. |
