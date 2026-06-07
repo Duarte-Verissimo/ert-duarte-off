@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Utilizador AMS" as USER
+actor "Security Officer" as SO
+actor "Transition Manager" as TM
+actor "Active Directory" as AD <<External System>>
+
+SO --|> USER
+TM --|> USER
+
+rectangle "AMS Intake Platform (Intake & Discovery — Submission, Approval & Controlled Corrections)" {
+  usecase "UC-01: Autenticar utilizador" as UC1
+  usecase "UC-02: Preencher formulário de Intake" as UC2
+  usecase "UC-03: Anexar evidência de DR" as UC3
+  usecase "UC-04: Aprovar formulário de Intake" as UC4
+  usecase "UC-05: Reabrir Intake aprovado" as UC5
+  usecase "UC-06: Sobrescrever dados aprovados" as UC6
+}
+
+USER --> UC1
+AD --> UC1
+
+TM --> UC2
+TM --> UC3
+SO --> UC4
+TM --> UC4
+SO --> UC5
+TM --> UC5
+SO --> UC6
+
+UC3 ..> UC2 : <<extend>>
+UC6 ..> UC1 : <<include>>
+@enduml
