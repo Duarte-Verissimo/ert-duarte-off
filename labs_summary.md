@@ -568,6 +568,10 @@ Ficou documentado que os testes cobrem:
 
 O protótipo React passou a refletir o REQ-009 através de audit events simulados em memória. A persistência real continua fora de scope; a simulação existe apenas para demonstração académica e não substitui os testes PyTest dos Labs 11 e 12.
 
+### Nota final de entrega
+
+Para alinhar a entrega final com o enunciado da cadeira, foi adicionada uma suite de testes unitários em pyUnit/unittest no ficheiro `tests/unit/test_intake_rules_unittest.py`. Esta suite replica os comportamentos críticos já cobertos em PyTest, mas usando a biblioteca standard `unittest`. Os testes PyTest foram mantidos como suporte adicional.
+
 ---
 
 ## Lab 13 — BDD Scenarios + Automation com Behave
@@ -694,6 +698,8 @@ Esta camada ajuda a mostrar que a suite de testes não é apenas criada, mas tam
 - `1 protótipo executável no repositório`
 - `22 casos de teste`
 - `8 testes automáticos PyTest`
+- `1 suite pyUnit/unittest com 10 testes`
+- `1 suite PyTest mantida como suporte adicional`
 - `6 feature files Gherkin com cenários BDD`
 - `1 conjunto de step definitions Behave`
 - `1 matriz REQ ↔ TC`

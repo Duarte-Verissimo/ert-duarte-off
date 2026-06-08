@@ -76,3 +76,27 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 ## Nota posterior sobre o protótipo React
 
 O protótipo React passou a refletir o REQ-009 através de audit events simulados em memória. A persistência real continua fora de scope; a simulação existe apenas para demonstração académica e não substitui os testes PyTest dos Labs 11 e 12.
+
+## Nota final de entrega — pyUnit/unittest
+
+Para alinhar a entrega final com o enunciado da cadeira, foi adicionada uma suite de testes unitários em pyUnit/unittest no ficheiro `tests/unit/test_intake_rules_unittest.py`.
+
+Esta suite usa a biblioteca standard de Python `unittest` e cobre os mesmos comportamentos críticos já trabalhados em PyTest:
+
+- aprovação de Intake por roles autorizadas;
+- bloqueio de aprovação por role não autorizada;
+- validação da validade temporal da evidência de Disaster Recovery;
+- criação de audit event em tentativa não autorizada;
+- persistência simulada do audit event em menos de 1 segundo.
+
+A suite pyUnit/unittest pode ser executada com:
+
+```bash
+python -m unittest -v tests.unit.test_intake_rules_unittest
+```
+
+Os testes PyTest foram mantidos como suporte adicional e continuam a poder ser executados com:
+
+```bash
+python -m pytest -q
+```
