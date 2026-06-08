@@ -1,17 +1,17 @@
-# Use Case Diagram — Lab 5
+# Diagrama de Use Cases — Lab 5
 
-## System boundary
+## Fronteira do sistema
 
-- System name: AMS Intake Platform
-- Slice covered: Intake & Discovery (Security & RBAC Variant)
+- Nome do sistema: AMS Intake Platform
+- Slice coberto: Intake & Discovery (Security & RBAC Variant)
 
-## Actors (3)
+## Atores (3)
 
 - A1: Security Officer
 - A2: Transition Manager
 - A3: Active Directory
 
-## Use cases (6)
+## Use Cases (6)
 
 - UC-01: Autenticar utilizador
 - UC-02: Preencher formulário de Intake
@@ -20,6 +20,6 @@
 - UC-05: Reabrir Intake aprovado
 - UC-06: Sobrescrever dados aprovados
 
-## Diagram file
+## Ficheiro do diagrama
 
-- Path: `docs/diagrams/use_case_diagram.puml`
+- Caminho: `docs/diagrams/use_case_diagram.puml`

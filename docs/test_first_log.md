@@ -8,7 +8,7 @@ Foram selecionados três requisitos do slice **Intake & Discovery**, alinhados c
 - `REQ-005 — Verificar a validade temporal da evidência de Disaster Recovery`
 - `REQ-009 — Registar tentativas de ações não autorizadas`
 
-## 2. Acceptance Criteria automatizados
+## 2. Critérios de Aceitação automatizados
 
 Foram automatizados critérios de aceitação relacionados com aprovação controlada por role, validação temporal da evidência de Disaster Recovery e auditoria de tentativas bloqueadas.
 
@@ -28,7 +28,7 @@ A abordagem seguida foi **Test First / TDD**:
 4. Implementar apenas a lógica mínima em `src/intake_rules.py`.
 5. Voltar a executar os testes e confirmar a fase Green.
 
-O objetivo não foi criar funcionalidades novas, UI, base de dados, autenticação real ou integração com Active Directory. O objetivo foi transformar requisitos e acceptance criteria já existentes em testes automáticos rastreáveis.
+O objetivo não foi criar funcionalidades novas, UI, base de dados, autenticação real ou integração com Active Directory. O objetivo foi transformar requisitos e critérios de aceitação já existentes em testes automáticos rastreáveis.
 
 ## 4. Fase Red
 
@@ -72,9 +72,9 @@ Resultado observado:
 
 Foi criado o ficheiro `bdd/features/lab11.feature` com uma feature e quatro cenários:
 
-- percurso feliz: utilizador autorizado aprova um Intake válido;
-- percurso negativo: utilizador `Viewer` tenta aprovar, é bloqueado e existe evidência de auditoria;
-- percurso negativo: evidência de Disaster Recovery com data futura é rejeitada;
+- happy path: utilizador autorizado aprova um Intake válido;
+- negative path: utilizador `Viewer` tenta aprovar, é bloqueado e existe evidência de auditoria;
+- negative path: evidência de Disaster Recovery com data futura é rejeitada;
 - percurso de fronteira: evidência de Disaster Recovery exatamente com 365 dias é aceite.
 
 Os cenários BDD cobrem `REQ-003`, `REQ-005` e `REQ-009`.
@@ -101,7 +101,7 @@ Os testes Vitest existentes no protótipo React não foram usados como evidênci
 | REQ-005 | Evidência de DR exatamente com 365 dias é aceite | `test_dr_evidence_exactly_365_days_old_is_valid` | Fronteira | Passou |
 | REQ-005 | Evidência de DR com mais de 365 dias é rejeitada | `test_dr_evidence_older_than_365_days_is_rejected` | Negativo | Passou |
 | REQ-005 | Evidência de DR com data futura é rejeitada | `test_dr_evidence_future_date_is_rejected` | Negativo | Passou |
-| REQ-009 | Tentativa não autorizada cria registo de auditoria sem o divulgar ao utilizador | `test_unauthorized_attempt_creates_audit_record_without_disclosing_log_to_user` | Segurança / negativo | Passou |
+| REQ-009 | Tentativa não autorizada cria registo de auditoria sem o divulgar ao utilizador | `test_unauthorized_attempt_creates_audit_record_without_disclosing_log_to_user` | Segurança / Negative | Passou |
 | REQ-009 | Log é persistido em menos de 1 segundo após o bloqueio | `test_audit_log_is_persisted_in_less_than_one_second` | Segurança / performance | Passou |
 
 ## 9. Uso de IA

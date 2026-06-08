@@ -1,4 +1,4 @@
-# Test Plan — Lab 10
+# Plano de Testes — Lab 10
 
 ## 1) Scope
 
@@ -48,9 +48,9 @@ O `REQ-001 — Recolher detalhes de infraestrutura e contactos` não é incluíd
 
 ---
 
-## 2) Test strategy — static + dynamic
+## 2) Estratégia de testes — estáticos + dinâmicos
 
-### Static testing
+### Testes estáticos
 
 Serão revistos:
 
@@ -61,7 +61,7 @@ Serão revistos:
 - rastreabilidade;
 - coerência entre o que foi desenvolvido no Lovable e o que está a ser testado.
 
-### Dynamic testing
+### Testes dinâmicos
 
 | Nível | O que se testa | Exemplos | Evidência |
 |---|---|---|---|
@@ -73,7 +73,7 @@ Serão revistos:
 
 ---
 
-## 3) TDD plan
+## 3) Plano TDD
 
 ### Candidato 1 — Validade temporal da evidência de DR
 
@@ -95,7 +95,7 @@ Serão revistos:
 
 ---
 
-## 4) BDD plan
+## 4) Plano BDD
 
 O ficheiro `bdd/features/lab9.feature` contém os cenários BDD.
 
@@ -109,13 +109,13 @@ Isto permite saber exatamente que requisito está a ser validado por cada cenár
 
 ---
 
-## 5) Coverage goals
+## 5) Objetivos de cobertura
 
 | Cobertura | Casos |
 |---|---|
-| Percurso feliz | TC-001, TC-003, TC-011, TC-013 |
+| Happy path | TC-001, TC-003, TC-011, TC-013 |
 | Fluxo alternativo | TC-004, TC-010 |
-| Negativo / erro | TC-002, TC-005, TC-008, TC-012, TC-015, TC-017, TC-022 |
+| Negative / erro | TC-002, TC-005, TC-008, TC-012, TC-015, TC-017, TC-022 |
 | Fronteira | TC-006, TC-007, TC-014 |
 | Segurança / RBAC | TC-004, TC-005, TC-009, TC-010, TC-012, TC-013, TC-015 |
 | Auditoria / logging | TC-005, TC-012, TC-015, TC-016, TC-017 |
@@ -123,7 +123,7 @@ Isto permite saber exatamente que requisito está a ser validado por cada cenár
 
 ---
 
-## 6) NFR validation approach
+## 6) Abordagem de validação dos NFR
 
 | NFR | Como será verificado |
 |---|---|
@@ -135,7 +135,7 @@ Isto permite saber exatamente que requisito está a ser validado por cada cenár
 
 ---
 
-## 7) Evidence recording
+## 7) Registo de evidência
 
 | Evidência | Caminho |
 |---|---|
@@ -144,5 +144,5 @@ Isto permite saber exatamente que requisito está a ser validado por cada cenár
 | BDD | `bdd/features/lab9.feature` |
 | Rastreabilidade REQ → TC | `docs/traceability_req_tc.md` |
 | Rastreabilidade REQ → AC → TC/BDD | `docs/traceability_req_ac_tc.md` |
-| AC & DoD updates | `docs/ac_dod_updates.md` |
+| Atualizações de AC e DoD | `docs/ac_dod_updates.md` |
 | Diagrama Visual Paradigm | `docs/diagrams/test_cases_lab9.png` |

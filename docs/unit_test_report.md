@@ -1,10 +1,10 @@
-# Lab 12 — Relatório de Unit Tests com PyTest
+# Lab 12 — Relatório de Testes Unitários com PyTest
 
 ## Objetivo
 
 O objetivo do Lab 12 é consolidar a evidência de testes unitários criada no Lab 11, mostrando como as regras críticas do slice **Intake & Discovery** são verificadas com Python + PyTest.
 
-Este relatório documenta os testes, as assertions principais, os requisitos cobertos, os acceptance criteria selecionados e a evidência de execução.
+Este relatório documenta os testes, as assertions principais, os requisitos cobertos, os critérios de aceitação selecionados e a evidência de execução.
 
 ## Scope selecionado
 
@@ -18,7 +18,7 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 - `REQ-005 — Verificar validade temporal da evidência de Disaster Recovery`
 - `REQ-009 — Registar tentativas de ações não autorizadas`
 
-## Acceptance Criteria selecionados
+## Critérios de Aceitação selecionados
 
 1. `REQ-003` — Utilizador autorizado pode aprovar um Intake válido.
 2. `REQ-003` — `Viewer` não pode aprovar e recebe `Acesso Negado`.
@@ -57,14 +57,14 @@ Não foram criados novos requisitos, UI, Selenium, base de dados, autenticação
 | ≥ 2 negative/error tests  | Bloqueio de `Viewer`, DR com 366 dias, DR futura, tentativa não autorizada             | Cumprido |
 | ≥ 1 boundary test         | Evidência de DR exatamente com 365 dias                                                | Cumprido |
 
-## Execution Evidence
+## Evidência de Execução
 
-- Date: 2026-06-01
-- Command used: `python -m pytest -q`
-- Tests run: 8
-- Passed: 8
-- Failed: 0
-- Result summary: `8 passed`
+- Data: 2026-06-01
+- Comando usado: `python -m pytest -q`
+- Testes executados: 8
+- Passaram: 8
+- Falharam: 0
+- Resumo do resultado: `8 passed`
 
 ## Limitações conhecidas
 

@@ -6,7 +6,7 @@ O `REQ-001` foi removido porque não fez parte do scope implementado no Lovable.
 
 ---
 
-| Requisito | Acceptance Criteria relacionados | Casos de Teste | Cenários BDD |
+| Requisito | Critérios de Aceitação relacionados | Casos de Teste | Cenários BDD |
 |---|---|---|---|
 | REQ-002 — Anexar evidência de Disaster Recovery | AC1: Evidência de DR pode ser anexada ao Intake. <br> AC2: Evidência fica associada ao Intake correto. <br> AC3: Sem evidência de DR, a aprovação é bloqueada. | TC-001, TC-002 | Bloquear aprovação quando falta evidência de Disaster Recovery; Apresentar erro de validação no mesmo ecrã em até um segundo |
 | REQ-003 — Restringir aprovação por RBAC | AC1: Transition Manager pode aprovar Intake válido. <br> AC2: Security Officer pode aprovar Intake válido. <br> AC3: Viewer recebe `Acesso Negado` e o estado não muda. | TC-003, TC-004, TC-005, TC-019 | Aprovar Intake válido com Transition Manager; Aprovar Intake válido com Security Officer; Bloquear aprovação por utilizador não autorizado |

@@ -1,4 +1,4 @@
-# Generated Scope — Lab 8
+# Scope Gerado — Lab 8
 
 ## Objetivo
 
@@ -8,14 +8,14 @@ O protótipo final encontra-se em `LovableApp/scope-prototype-main`.
 
 ---
 
-## Selected slice
+## Slice selecionado
 
 - `Slice escolhido: B`
 - `Justificação curta: slice pequeno, demonstrável em UI, com validação clara e impacto visível da Variante 3`
 
 ---
 
-## Actors / roles
+## Atores / roles
 
 - `Ator principal: Transition Manager`
 - `Atores secundários / roles relevantes: Security Officer, utilizador não autorizado (simulado)`
@@ -23,14 +23,14 @@ O protótipo final encontra-se em `LovableApp/scope-prototype-main`.
 
 ---
 
-## Use Cases implemented
+## Use Cases implementados
 
 - `UC-03 — Anexar evidência de DR`
 - `UC-04 — parte relativa à validação antes da aprovação`
 
 ---
 
-## Requirements implemented (max 10)
+## Requisitos implementados (max 10)
 
 - `REQ-002`
 - `REQ-004`
@@ -40,7 +40,7 @@ O protótipo final encontra-se em `LovableApp/scope-prototype-main`.
 
 ---
 
-## Variant constraints implemented (min. 2)
+## Restrições da variante implementadas (min. 2)
 
 - `Constraint 1: apenas roles autorizadas podem concluir a ação final de submissão do Intake`
 - `Constraint 2: erros de validação e tentativas sem permissão bloqueiam a ação e apresentam mensagem visível no mesmo ecrã`
@@ -50,7 +50,7 @@ Esta secção reflete as restrições visíveis da Variante 3 no comportamento d
 
 ---
 
-## Out of scope (explicit)
+## Fora de scope (explícito)
 
 - `integração real com AD/SSO`
 - `aprovação final completa do processo`

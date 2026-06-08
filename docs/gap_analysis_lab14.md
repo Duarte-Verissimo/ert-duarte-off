@@ -1,4 +1,4 @@
-# Lab 14 — Gap Analysis
+# Lab 14 — Análise de Gaps
 
 ## Objetivo
 
@@ -19,7 +19,7 @@ Identificar lacunas de cobertura, automação e rastreabilidade nos testes exist
 | GAP-009 | `NFR-003`, `NFR-004` e `NFR-006` não têm automação. | Performance, disponibilidade e compatibilidade ficam sem evidência dinâmica. | Manter como planeado; seriam cobertos por performance monitoring, disponibilidade e testes browser em contexto próprio. |
 | GAP-010 | `NFR-005` é coberto parcialmente por mensagens textuais, mas não por localização visual nem tempo real de UI. | Evidência incompleta de usabilidade. | Criar teste UI apenas se o professor pedir Selenium/Playwright; neste Lab está fora de scope. |
 | GAP-011 | Existe duplicação intencional entre `lab13.feature` e os ficheiros `req_003`, `req_005`, `req_009`. | Pode gerar contagem duplicada se se correrem todos os features. | Documentar que a evidência principal usa comandos específicos do Lab 13, não necessariamente `python -m behave bdd/`. |
-| GAP-012 | `python -m behave bdd/` pode executar `lab11.feature`, que não é o deliverable principal do Lab 13. | Execução global pode falhar se features antigos não tiverem steps completos. | Usar comandos específicos documentados em `docs/bdd_report.md`. |
+| GAP-012 | `python -m behave bdd/` pode executar `lab11.feature`, que não é o entregável principal do Lab 13. | Execução global pode falhar se ficheiros feature antigos não tiverem steps completos. | Usar comandos específicos documentados em `docs/bdd_report.md`. |
 
 ## Testes ou cenários sem ligação clara a REQ
 
@@ -29,7 +29,7 @@ Não foram identificados testes PyTest ou cenários BDD do Lab 13 sem ligação 
 - todos os cenários em `lab13.feature` têm comentário `# Requisito testado`;
 - os ficheiros separados por requisito já codificam o REQ no nome do ficheiro e nos comentários dos cenários.
 
-## AC items sem cobertura automática
+## Itens de AC sem cobertura automática
 
 - `REQ-003`: a regra de que perfis de leitura não devem ver a ação de aprovação não é automatizada porque não há UI neste scope.
 - `REQ-004`: bloqueios por campos obrigatórios vazios/evidência em falta não têm automação Python dedicada.

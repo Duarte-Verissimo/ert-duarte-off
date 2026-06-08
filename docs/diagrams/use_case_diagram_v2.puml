@@ -5,12 +5,12 @@ skinparam packageStyle rectangle
 actor "Utilizador AMS" as USER
 actor "Security Officer" as SO
 actor "Transition Manager" as TM
-actor "Active Directory" as AD <<External System>>
+actor "Active Directory" as AD <<Sistema Externo>>
 
 SO --|> USER
 TM --|> USER
 
-rectangle "AMS Intake Platform (Intake & Discovery — Submission, Approval & Controlled Corrections)" {
+rectangle "AMS Intake Platform (Intake & Discovery — Submissão, Aprovação e Correções Controladas)" {
   usecase "UC-01: Autenticar utilizador" as UC1
   usecase "UC-02: Preencher formulário de Intake" as UC2
   usecase "UC-03: Anexar evidência de DR" as UC3

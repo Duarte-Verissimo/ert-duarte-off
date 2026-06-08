@@ -692,7 +692,7 @@ Esta camada ajuda a mostrar que a suite de testes não é apenas criada, mas tam
 - `1 generated scope`
 - `1 vibe coding log com 2 iterações`
 - `1 protótipo executável no repositório`
-- `24 casos de teste`
+- `22 casos de teste`
 - `8 testes automáticos PyTest`
 - `6 feature files Gherkin com cenários BDD`
 - `1 conjunto de step definitions Behave`

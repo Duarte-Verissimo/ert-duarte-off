@@ -30,25 +30,25 @@ O `REQ-001 — Recolher detalhes de infraestrutura e contactos` foi removido des
 
 | Caso de teste | Requisitos relacionados | Categoria |
 |---|---|---|
-| TC-001 | REQ-002 | Percurso feliz |
-| TC-002 | REQ-002, REQ-004, NFR-005 | Negativo / erro |
-| TC-003 | REQ-003, REQ-004, REQ-005 | Percurso feliz |
+| TC-001 | REQ-002 | Happy path |
+| TC-002 | REQ-002, REQ-004, NFR-005 | Negative / erro |
+| TC-003 | REQ-003, REQ-004, REQ-005 | Happy path |
 | TC-004 | REQ-003, REQ-004, REQ-005 | Fluxo alternativo |
-| TC-005 | REQ-003, REQ-009, NFR-005 | Negativo / erro |
-| TC-006 | REQ-005, NFR-005 | Fronteira / negativo |
+| TC-005 | REQ-003, REQ-009, NFR-005 | Negative / erro |
+| TC-006 | REQ-005, NFR-005 | Fronteira / Negative |
 | TC-007 | REQ-005 | Fronteira |
-| TC-008 | REQ-005, NFR-005 | Negativo / erro |
+| TC-008 | REQ-005, NFR-005 | Negative / erro |
 | TC-009 | REQ-006 | Negativo / segurança |
 | TC-010 | REQ-006 | Fluxo alternativo |
-| TC-011 | REQ-007 | Percurso feliz |
-| TC-012 | REQ-007, REQ-009, NFR-005 | Negativo / erro |
-| TC-013 | REQ-008 | Percurso feliz |
-| TC-014 | REQ-008 | Fronteira / negativo |
-| TC-015 | REQ-008, REQ-009, NFR-005 | Negativo / erro |
+| TC-011 | REQ-007 | Happy path |
+| TC-012 | REQ-007, REQ-009, NFR-005 | Negative / erro |
+| TC-013 | REQ-008 | Happy path |
+| TC-014 | REQ-008 | Fronteira / Negative |
+| TC-015 | REQ-008, REQ-009, NFR-005 | Negative / erro |
 | TC-016 | REQ-009, NFR-002 | NFR / auditoria |
-| TC-017 | REQ-009, NFR-002 | NFR / negativo |
+| TC-017 | REQ-009, NFR-002 | NFR / Negative |
 | TC-018 | NFR-001 | NFR / segurança |
 | TC-019 | NFR-005, REQ-003, REQ-004 | NFR / usabilidade |
 | TC-020 | NFR-003 | NFR / performance |
 | TC-021 | NFR-006 | NFR / compatibilidade |
-| TC-022 | REQ-004, REQ-005, NFR-005 | Negativo / erro |
+| TC-022 | REQ-004, REQ-005, NFR-005 | Negative / erro |

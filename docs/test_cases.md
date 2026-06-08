@@ -22,7 +22,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Sistema
 - Prioridade: Alta
-- Categoria de cobertura: Percurso feliz
+- Categoria de cobertura: Happy path
 - Requisitos relacionados: REQ-002
 - Pré-condições:
   - O utilizador está autenticado.
@@ -48,7 +48,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Aceitação
 - Prioridade: Alta
-- Categoria de cobertura: Negativo / erro
+- Categoria de cobertura: Negative / erro
 - Requisitos relacionados: REQ-002, REQ-004, NFR-005
 - Pré-condições:
   - O utilizador está autenticado como `Transition Manager`.
@@ -73,7 +73,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Aceitação
 - Prioridade: Alta
-- Categoria de cobertura: Percurso feliz
+- Categoria de cobertura: Happy path
 - Requisitos relacionados: REQ-003, REQ-004, REQ-005
 - Pré-condições:
   - O utilizador está autenticado como `Transition Manager`.
@@ -119,7 +119,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Segurança
 - Prioridade: Alta
-- Categoria de cobertura: Negativo / erro
+- Categoria de cobertura: Negative / erro
 - Requisitos relacionados: REQ-003, REQ-009, NFR-005
 - Pré-condições:
   - O utilizador está autenticado como `Viewer`.
@@ -141,7 +141,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Unitário
 - Prioridade: Alta
-- Categoria de cobertura: Fronteira / negativo
+- Categoria de cobertura: Fronteira / Negative
 - Requisitos relacionados: REQ-005, NFR-005
 - Pré-condições:
   - O utilizador está autenticado.
@@ -182,7 +182,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Unitário
 - Prioridade: Alta
-- Categoria de cobertura: Negativo / erro
+- Categoria de cobertura: Negative / erro
 - Requisitos relacionados: REQ-005, NFR-005
 - Pré-condições:
   - O utilizador está autenticado.
@@ -241,7 +241,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Aceitação
 - Prioridade: Alta
-- Categoria de cobertura: Percurso feliz
+- Categoria de cobertura: Happy path
 - Requisitos relacionados: REQ-007
 - Pré-condições:
   - O utilizador está autenticado como `Security Officer`.
@@ -259,7 +259,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Segurança
 - Prioridade: Alta
-- Categoria de cobertura: Negativo / erro
+- Categoria de cobertura: Negative / erro
 - Requisitos relacionados: REQ-007, REQ-009, NFR-005
 - Pré-condições:
   - O utilizador está autenticado como `Viewer`.
@@ -277,7 +277,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Aceitação
 - Prioridade: Alta
-- Categoria de cobertura: Percurso feliz
+- Categoria de cobertura: Happy path
 - Requisitos relacionados: REQ-008
 - Pré-condições:
   - O utilizador está autenticado como `Security Officer`.
@@ -300,7 +300,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Unitário
 - Prioridade: Alta
-- Categoria de cobertura: Fronteira / negativo
+- Categoria de cobertura: Fronteira / Negative
 - Requisitos relacionados: REQ-008
 - Dados de teste:
   - Justificação: 19 caracteres.
@@ -317,7 +317,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Segurança
 - Prioridade: Alta
-- Categoria de cobertura: Negativo / erro
+- Categoria de cobertura: Negative / erro
 - Requisitos relacionados: REQ-008, REQ-009, NFR-005
 - Dados de teste:
   - Password incorreta.
@@ -352,7 +352,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Segurança
 - Prioridade: Alta
-- Categoria de cobertura: NFR / negativo
+- Categoria de cobertura: NFR / Negative
 - Requisitos relacionados: NFR-002, REQ-009
 - Passos:
   1. Tentar alterar ou apagar um log sem permissão.
@@ -427,7 +427,7 @@ Também são incluídos testes planeados para requisitos da Variante 3: REQ-006,
 
 - Tipo: Aceitação
 - Prioridade: Alta
-- Categoria de cobertura: Negativo / erro
+- Categoria de cobertura: Negative / erro
 - Requisitos relacionados: REQ-004, REQ-005, NFR-005
 - Passos:
   1. Anexar evidência de DR inválida.

@@ -5,15 +5,15 @@
 - Primary actor: Transition Manager
 - Supporting actors: Security Officer
 - Goal: Validar a completude do Intake e aprovar o processo para a fase seguinte.
-- Preconditions: O utilizador tem sessão ativa e o Intake encontra-se em `Draft`.
+- Pré-condições: O utilizador tem sessão ativa e o Intake encontra-se em `Draft`.
 - Trigger: O utilizador autorizado clica em `Aprovar`.
-- Postconditions (success): O estado do Intake muda para `Aprovado`.
-- Postconditions (failure/cancel): O estado do Intake mantém-se em `Draft` e os erros aplicáveis são apresentados.
+- Pós-condições (sucesso): O estado do Intake muda para `Aprovado`.
+- Pós-condições (falha/cancelamento): O estado do Intake mantém-se em `Draft` e os erros aplicáveis são apresentados.
 - Related requirements: REQ-003, REQ-004, REQ-005, REQ-009
 
 Nota: o `Transition Manager` é o ator principal porque, no fluxo normal do slice, é o papel que conduz a decisão operacional de aprovação; o `Security Officer` surge como ator de suporte por partilhar a mesma permissão em situações de controlo e exceção.
 
-### Main flow (happy path)
+### Fluxo principal (happy path)
 
 1. O utilizador abre o Intake em estado `Draft`.
 2. O sistema valida a completude dos dados obrigatórios.
@@ -22,14 +22,14 @@ Nota: o `Transition Manager` é o ator principal porque, no fluxo normal do slic
 5. O sistema altera o estado para `Aprovado`.
 6. O sistema apresenta confirmação de sucesso.
 
-### Alternative flows
+### Fluxos alternativos
 
 A1. Evidência de DR em falta ->
 1. No passo 3, o sistema deteta que não existe anexo obrigatório.
 2. O sistema apresenta `Evidência de DR em falta`.
 3. O caso de uso termina sem aprovação.
 
-### Exceptions / errors
+### Exceções / erros
 
 E1. Utilizador sem permissões ->
 1. No passo 4, o sistema deteta role não autorizada.
@@ -43,13 +43,13 @@ E1. Utilizador sem permissões ->
 - Primary actor: Security Officer
 - Supporting actors: N/A
 - Goal: Executar uma alteração excecional a dados já aprovados com controlo reforçado.
-- Preconditions: O Intake está em `Aprovado` e o utilizador possui sessão válida.
+- Pré-condições: O Intake está em `Aprovado` e o utilizador possui sessão válida.
 - Trigger: O utilizador clica em `Override`.
-- Postconditions (success): O sistema autoriza a edição excecional e regista a justificação.
-- Postconditions (failure/cancel): O override é abortado e os dados aprovados mantêm-se inalterados.
+- Pós-condições (sucesso): O sistema autoriza a edição excecional e regista a justificação.
+- Pós-condições (falha/cancelamento): O override é abortado e os dados aprovados mantêm-se inalterados.
 - Related requirements: REQ-006, REQ-008, REQ-009
 
-### Main flow (happy path)
+### Fluxo principal (happy path)
 
 1. O utilizador abre um Intake aprovado.
 2. O sistema apresenta a ação `Override` ao perfil autorizado.
@@ -58,13 +58,13 @@ E1. Utilizador sem permissões ->
 5. O utilizador introduz password válida e justificação com 20 ou mais caracteres.
 6. O sistema valida a reautenticação e autoriza a edição excecional.
 
-### Alternative flows
+### Fluxos alternativos
 
 A1. Justificação insuficiente ->
 1. No passo 5, o utilizador escreve uma justificação demasiado curta.
 2. O sistema mantém a confirmação desativada até cumprir o limite mínimo.
 
-### Exceptions / errors
+### Exceções / erros
 
 E1. Password incorreta ->
 1. No passo 6, a reautenticação falha.

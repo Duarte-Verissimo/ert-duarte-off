@@ -4,7 +4,7 @@ skinparam packageStyle rectangle
 
 actor "Security Officer" as SO
 actor "Transition Manager" as TM
-actor "Active Directory" as AD <<External System>>
+actor "Active Directory" as AD <<Sistema Externo>>
 
 rectangle "AMS Intake Platform (Intake & Discovery)" {
   usecase "UC-01: Autenticar utilizador" as UC1

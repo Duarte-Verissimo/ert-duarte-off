@@ -8,7 +8,7 @@ Um requisito é considerado "Pronto" quando:
 2. O stakeholder e a source/origem do requisito estão registados
 3. A descrição é não ambígua e evita detalhar implementação desnecessariamente
 4. Existem acceptance criteria em número suficiente (`2–4`, quando aplicável) e são testáveis ou verificáveis
-5. O impacto da variante está explicitamente identificado (`Yes/No`) quando aplicável
+5. O impacto da variante está explicitamente identificado (`Sim/Não`) quando aplicável
 6. Existem ligações a use cases ou user stories relacionados, quando disponíveis
 7. Conflitos, duplicados ou problemas de scope estão resolvidos ou documentados
 8. Está definido um método de validação (revisão, demo, teste ou medição)

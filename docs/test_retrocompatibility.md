@@ -1,4 +1,4 @@
-# Lab 14 — Test Retrocompatibility
+# Lab 14 — Retrocompatibilidade de Testes
 
 ## Objetivo
 
@@ -14,17 +14,17 @@ Analisar que alterações futuras podem partir os testes PyTest e Behave, e defi
 - Duplicação de cenários entre ficheiros agregados e ficheiros por requisito.
 - Mudança na estrutura dos feature files.
 
-## Fragile points e melhorias
+## Pontos frágeis e melhorias
 
 | Fragile point | Risco | Melhoria recomendada |
 | --- | --- | --- |
 | Assertions dependentes de texto: `Acesso Negado`, `fora do prazo aceite`, `futura`. | Pequenas alterações de wording podem partir testes mesmo que a regra continue correta. | Introduzir códigos internos de erro no futuro, mantendo as mensagens como detalhe secundário. |
 | Datas fixas usadas para cenários de DR. | Mudanças manuais nas datas podem alterar o significado dos testes de 365/366 dias. | Manter `FIXED_NOW` nos PyTest e datas explícitas nos Gherkin; documentar que são datas determinísticas. |
 | Duplicação intencional entre `lab13.feature` e os ficheiros `req_003`, `req_005`, `req_009`. | O mesmo cenário pode ser atualizado num ficheiro e ficar desatualizado noutro. | Quando um cenário mudar, atualizar primeiro o ficheiro por requisito e depois o agregado, ou vice-versa, e validar ambos. |
-| Execução de `python -m behave bdd/` pode incluir `lab11.feature`. | Features antigos podem falhar por steps ausentes ou por não pertencerem ao scope do Lab 13. | Usar comandos específicos do Lab 13 como evidência principal: `lab13.feature` e os três ficheiros por requisito. |
+| Execução de `python -m behave bdd/` pode incluir `lab11.feature`. | Ficheiros feature antigos podem falhar por steps ausentes ou por não pertencerem ao scope do Lab 13. | Usar comandos específicos do Lab 13 como evidência principal: `lab13.feature` e os três ficheiros por requisito. |
 | Persistência simulada em memória para audit log. | Pode dar uma falsa sensação de cobertura de persistência real. | Manter a limitação explícita; quando existir armazenamento real, criar testes de integração separados. |
 | Refactor de `src/intake_rules.py`. | Alterar chaves dos dicionários retornados pode partir PyTest e Behave. | Preservar o contrato público das funções ou atualizar testes e documentação em conjunto. |
-| Alteração de dependências. | Behave/PyTest podem mudar output, parsing ou descoberta de steps. | Manter `requirements.txt` e registar versões usadas em relatórios de execução. |
+| Alteração de dependências. | Behave/PyTest podem alterar output, parsing ou descoberta de steps. | Manter `requirements.txt` e registar versões usadas em relatórios de execução. |
 
 ## Estratégia de retrocompatibilidade
 

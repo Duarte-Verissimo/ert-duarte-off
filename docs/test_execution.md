@@ -1,8 +1,9 @@
-# Lab 12 — Execução dos Testes PyTest
+# Lab 12 — Execução dos Testes Unitários
 
 ## Stack
 
 - Python
+- pyUnit/unittest
 - PyTest
 
 ## Requisitos de versão
@@ -11,7 +12,7 @@
 - `pytest>=7.0`, definido em `requirements.txt`.
 - `behave>=1.2.6`, mantido em `requirements.txt` para compatibilidade com a componente BDD do dossiê.
 
-## Setup
+## Configuração
 
 A partir da raiz do repositório:
 
@@ -19,7 +20,13 @@ A partir da raiz do repositório:
 python -m pip install -r requirements.txt
 ```
 
-## Correr todos os testes
+## Correr testes unitários pyUnit/unittest
+
+```bash
+python -m unittest -v tests.unit.test_intake_rules_unittest
+```
+
+## Correr todos os testes PyTest
 
 ```bash
 python -m pytest -q
@@ -42,11 +49,15 @@ python -m pytest -q tests/unit/test_intake_rules.py::test_viewer_cannot_approve_
 ## Resultado esperado
 
 ```txt
-8 passed
+unittest: Ran 10 tests / OK
+pytest: 18 passed
 ```
 
-## Troubleshooting
+Nota: `python -m pytest -q` também descobre os testes `unittest` adicionados para a entrega final. Para executar apenas o ficheiro PyTest original, usar `python -m pytest -q tests/unit/test_intake_rules.py`, cujo resultado esperado é `8 passed`.
 
+## Resolução de problemas
+
+- Se `unittest` não encontrar `tests.unit.test_intake_rules_unittest`, confirmar que o comando está a ser executado na raiz do repositório.
 - Se `pytest` não for reconhecido, usar sempre `python -m pytest -q`.
 - Se surgir `ModuleNotFoundError`, confirmar que o comando está a ser executado na raiz do repositório.
 - Se as dependências não existirem, repetir `python -m pip install -r requirements.txt`.

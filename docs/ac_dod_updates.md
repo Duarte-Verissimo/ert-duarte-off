@@ -6,7 +6,7 @@ O `REQ-001` não é incluído porque não fez parte do scope implementado no Lov
 
 ---
 
-## Acceptance Criteria improvements
+## Melhorias dos Critérios de Aceitação
 
 ### Item 1 — REQ-003: aprovação por RBAC
 
@@ -53,7 +53,7 @@ O `REQ-001` não é incluído porque não fez parte do scope implementado no Lov
     quando é validada,
     então é aceite.
 - Razão:
-  - Corrige lacuna de boundary testing.
+  - Corrige lacuna de teste de fronteira.
 
 ### Item 5 — REQ-008: justificação mínima
 
@@ -86,9 +86,9 @@ O `REQ-001` não é incluído porque não fez parte do scope implementado no Lov
 
 ---
 
-## DoD updates
+## Atualizações da DoD
 
-### Update 1 — Rastreabilidade obrigatória
+### Atualização 1 — Rastreabilidade obrigatória
 
 - Antes:
   - AC devem ser testáveis.
@@ -97,7 +97,7 @@ O `REQ-001` não é incluído porque não fez parte do scope implementado no Lov
 - Razão:
   - Evita requisitos sem evidência de validação.
 
-### Update 2 — Coerência com scope implementado
+### Atualização 2 — Coerência com scope implementado
 
 - Antes:
   - Não existia regra explícita.
@@ -106,20 +106,20 @@ O `REQ-001` não é incluído porque não fez parte do scope implementado no Lov
 - Razão:
   - Evita inconsistências como a inclusão indevida do REQ-001.
 
-### Update 3 — Testes negativos e fronteira
+### Atualização 3 — Testes negativos e fronteira
 
 - Antes:
   - Bastava indicar método de validação.
 - Depois:
   - Requisitos críticos devem incluir pelo menos um teste negativo ou de fronteira quando aplicável.
 - Razão:
-  - Regras críticas não devem ser validadas só com percurso feliz.
+  - Regras críticas não devem ser validadas só com happy path.
 
-### Update 4 — Evidência específica para variante
+### Atualização 4 — Evidência específica para variante
 
 - Antes:
-  - O impacto da variante era marcado como Yes/No.
+  - O impacto da variante era marcado como Sim/Não.
 - Depois:
-  - Requisitos variant-driven devem ter evidência específica: RBAC, bloqueio, reautenticação ou auditoria.
+  - Requisitos orientados pela variante devem ter evidência específica: RBAC, bloqueio, reautenticação ou auditoria.
 - Razão:
   - A Variante 3 precisa de ser demonstrada por testes.

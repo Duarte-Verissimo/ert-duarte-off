@@ -19,23 +19,91 @@
 
 ## Tech stack
 
-- Testing track: PyTest
-- BDD status: Automated Behave scenarios implemented and documented in Lab 13
+- Application: Python
+- Unit testing track: pyUnit/unittest
+- Additional unit tests: PyTest
+- BDD automation: Behave + Gherkin
 - Prototype generation track: Lovable (Lab 8)
+
+## Repository content
+
+- Requirements documentation, validation, traceability, test design, BDD reports, and quality maintenance artefacts up to Lab 14
+- Functional Python application demo in `src/app.py`
+- pyUnit/unittest unit tests in `tests/unit/test_intake_rules_unittest.py`
+- PyTest tests kept as additional unit-test support in `tests/unit/test_intake_rules.py`
+- Automated BDD scenarios in Behave + Gherkin
+- Lab 8 Lovable prototype documented in `docs/vibe_coding_log.md`
+
+## Setup
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate it on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+Activate it on macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+## How to run the application
+
+```bash
+python -m src.app
+```
 
 ## How to run tests
 
-- At this stage, the repository contains requirements, validation, traceability, prototyping, unit testing, BDD automation, and quality maintenance artefacts up to Lab 14
-- Lab 8 prototype verification is documented in `docs/vibe_coding_log.md`
-- To run the Python tests:
-  - `python -m pytest -q`
-- To run the BDD scenarios:
-  - `python -m behave bdd/features`
-- To verify the Lab 8 prototype:
-  - `cd LovableApp/scope-prototype-main`
-  - `npm install`
-  - `npm run build`
-  - `npm test`
+Run the pyUnit/unittest test suite required by the course statement:
+
+```bash
+python -m unittest -v tests.unit.test_intake_rules_unittest
+```
+
+Run the additional PyTest suite:
+
+```bash
+python -m pytest -q
+```
+
+Run the main BDD evidence file for Lab 13:
+
+```bash
+python -m behave bdd/features/lab13.feature
+```
+
+Run the BDD files separated by requirement:
+
+```bash
+python -m behave bdd/features/req_003_aprovacao_rbac.feature
+python -m behave bdd/features/req_005_validade_evidencia_dr.feature
+python -m behave bdd/features/req_009_auditoria_acoes_nao_autorizadas.feature
+```
+
+The main Behave command for final evidence is `bdd/features/lab13.feature`. The separated requirement files follow the organization used in the professor's example. Avoid using a generic command over the whole BDD folder as final evidence, because older feature files may exist with incompatible or legacy steps.
+
+## How to verify the Lab 8 prototype
+
+```bash
+cd LovableApp/scope-prototype-main
+npm install
+npm run build
+npm test
+```
 
 ## Repository overview
 
